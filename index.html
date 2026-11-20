@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Muhammad Irfan | Portofolio TJKT & Tech Enthusiast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg-base:#04070f;--bg-surface:rgba(13,20,38,.82);--neon-cyan:#00f5d4;--neon-blue:#3b82f6;--neon-purple:#a855f7;--text-primary:#f8fafc;--text-secondary:#94a3b8;--border-subtle:rgba(255,255,255,.09);--border-glow:rgba(0,245,212,.35);color-scheme:dark;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;background-color:var(--bg-base);color:var(--text-primary);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#network-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
+.aurora-bg{position:fixed;inset:0;z-index:-3;overflow:hidden;background:radial-gradient(circle at 50% 0%,#0b152c 0%,#04070f 70%)}
+.orb{position:absolute;border-radius:50%;opacity:.4}
+.orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(0,245,212,.55),transparent 68%);top:-200px;left:-180px}
+.orb-2{width:640px;height:640px;background:radial-gradient(circle,rgba(168,85,247,.55),transparent 68%);bottom:-220px;right:-180px}
+header{position:fixed;top:0;width:100%;background:rgba(4,7,15,.9);border-bottom:1px solid var(--border-subtle);z-index:1000;padding-top:env(safe-area-inset-top,0px)}
+.nav-container{max-width:1140px;margin:auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:700;display:flex;align-items:center;gap:.5rem;letter-spacing:.5px}
+.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--neon-cyan);box-shadow:0 0 14px var(--neon-cyan);animation:pulseDot 2s infinite}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+nav a{color:var(--text-secondary);text-decoration:none;margin-left:1.75rem;font-size:.92rem;font-weight:500;position:relative;transition:color .3s}
+nav a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:2px;background:linear-gradient(90deg,var(--neon-cyan),var(--neon-purple));transition:width .3s;border-radius:2px}
+nav a:hover{color:var(--text-primary)}nav a:hover::after{width:100%}
+.hero{min-height:100vh;max-width:1140px;margin:auto;padding:7.5rem 1.5rem 4rem;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.badge{display:inline-flex;align-items:center;gap:.55rem;padding:.42rem 1rem;border-radius:999px;font-size:.84rem;font-weight:600;color:var(--neon-cyan);border:1px solid var(--border-glow);background:rgba(0,245,212,.08);box-shadow:0 0 24px rgba(0,245,212,.14);margin-bottom:1.4rem}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4.1rem);font-weight:800;line-height:1.12;letter-spacing:-.02em;margin-bottom:.9rem}
+.hero h1 span{background:linear-gradient(120deg,#00f5d4 0%,#3b82f6 50%,#c084fc 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.typing-wrapper{font-family:'JetBrains Mono',monospace;font-size:clamp(1rem,2.2vw,1.25rem);color:var(--neon-cyan);margin-bottom:1.25rem;min-height:1.8rem}
+.cursor{display:inline-block;width:2px;height:1.15em;background:var(--neon-cyan);vertical-align:middle;margin-left:3px;animation:blinkCursor .8s infinite}
+@keyframes blinkCursor{0%,49%{opacity:1}50%,100%{opacity:0}}
+.hero p{max-width:650px;color:var(--text-secondary);font-size:1.06rem;margin-bottom:2.2rem}
+.btn-group{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{padding:.85rem 1.75rem;border-radius:12px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .3s cubic-bezier(.22,1,.36,1);display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary{background:linear-gradient(135deg,var(--neon-cyan),#06b6d4);color:#030a12;box-shadow:0 8px 25px rgba(0,245,212,.32)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 32px rgba(0,245,212,.55)}
+.btn-outline{border:1px solid rgba(168,85,247,.45);color:var(--text-primary);background:rgba(168,85,247,.1)}
+.btn-outline:hover{transform:translateY(-3px);border-color:var(--neon-purple);background:rgba(168,85,247,.22);box-shadow:0 10px 26px rgba(168,85,247,.28)}
+section{max-width:1140px;margin:auto;padding:5.5rem 1.5rem}
+.section-header{margin-bottom:2.8rem}
+.section-title{font-size:2rem;font-weight:800;letter-spacing:-.01em;margin-bottom:.45rem}
+.section-subtitle{color:var(--text-secondary);font-size:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr));gap:1.6rem}
+.card{position:relative;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:20px;padding:1.85rem;overflow:hidden;transition:transform .2s ease-out,border-color .3s,box-shadow .3s}
+.card::before{content:'';position:absolute;inset:0;background:radial-gradient(420px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(0,245,212,.14),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::before{opacity:1}
+.card:hover{border-color:var(--border-glow);box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 24px rgba(0,245,212,.12)}
+.card-icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(0,245,212,.16),rgba(168,85,247,.16));border:1px solid rgba(0,245,212,.28);color:var(--neon-cyan);margin-bottom:1.2rem}
+.card h3{margin-bottom:.65rem;font-size:1.2rem;font-weight:700}
+.card p{color:var(--text-secondary);font-size:.95rem}
+.tag-list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+.tag{font-family:'JetBrains Mono',monospace;font-size:.76rem;padding:.28rem .7rem;border-radius:8px;background:rgba(59,130,246,.12);color:#93c5fd;border:1px solid rgba(59,130,246,.28)}
+.contact-box{position:relative;background:linear-gradient(135deg,rgba(13,20,38,.82),rgba(24,16,48,.9));border:1px solid var(--border-glow);border-radius:24px;padding:3rem 2rem;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.contact-box h2{font-size:1.9rem;margin-bottom:.75rem}
+.contact-box p{color:var(--text-secondary);max-width:560px;margin:0 auto 1.8rem}
+.social-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+footer{text-align:center;padding:2.2rem 1rem calc(2.2rem + env(safe-area-inset-bottom,0px));color:var(--text-secondary);font-size:.88rem;border-top:1px solid var(--border-subtle)}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--border-subtle);border-radius:12px;background:rgba(255,255,255,.04);cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0}
+.menu-btn span{display:block;width:20px;height:2px;border-radius:2px;background:var(--text-primary);transition:transform .3s,opacity .3s}
+.menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}
+.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:680px){
+.menu-btn{display:flex}
+nav{position:absolute;top:100%;left:0;right:0;display:flex;flex-direction:column;padding:.5rem 1.5rem 1rem;background:rgba(4,7,15,.97);border-bottom:1px solid var(--border-subtle);opacity:0;transform:translateY(-8px);pointer-events:none;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s}
+nav.open{opacity:1;transform:translateY(0);pointer-events:auto;visibility:visible}
+nav a{margin-left:0;padding:.85rem 0;font-size:1rem;border-bottom:1px solid var(--border-subtle)}
+nav a:last-child{border-bottom:none}
+nav a::after{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="aurora-bg"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+<canvas id="network-canvas"></canvas>
+
+<header>
+  <div class="nav-container">
+    <div class="logo"><span class="logo-dot"></span>IRFAN.DEV</div>
+    <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav id="main-nav">
+      <a href="#tentang">Tentang</a>
+      <a href="#keahlian">Keahlian</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="tentang">
+  <span class="badge">SMK • Teknik Jaringan Komputer & Telekomunikasi (TJKT)</span>
+  <h1>Halo, Saya <span>Muhammad Irfan</span></h1>
+  <div class="typing-wrapper"><span id="typing-text"></span><span class="cursor"></span></div>
+  <p>Pelajar jurusan TJKT yang fokus mendalami topologi & infrastruktur jaringan komputer, konfigurasi perangkat, perakitan sistem, serta eksplorasi pengembangan web modern.</p>
+  <div class="btn-group">
+    <a href="#proyek" class="btn btn-primary">Jelajahi Proyek</a>
+    <a href="#kontak" class="btn btn-outline">Hubungi Saya</a>
+  </div>
+</section>
+
+<section id="keahlian">
+  <div class="section-header reveal">
+    <h2 class="section-title">Keahlian & Fokus Teknis</h2>
+    <p class="section-subtitle">Kompetensi kejuruan dan alat teknologi yang dikuasai.</p>
+  </div>
+  <div class="grid">
+    <div class="card tilt-card reveal">
+      <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="6" rx="2"/><rect x="2" y="15" width="20" height="6" rx="2"/><path d="M12 9v6"/></svg></div>
+      <h3>Topologi & Infrastruktur Jaringan</h3>
+      <p>Perancangan dan simulasi jaringan lokal menggunakan Router, Switch Hub, Access Point, PC, serta konektivitas nirkabel (Wi-Fi).</p>
+      <div class="tag-list"><span class="tag">Routing & Switching</span><span class="tag">Access Point</span><span class="tag">LAN / WLAN</span></div>
+    </div>
+    <div class="card tilt-card reveal">
+      <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div>
+      <h3>Perakitan & Troubleshooting</h3>
+      <p>Analisis gangguan perangkat komputer Windows dan smartphone Android, instalasi sistem, serta pemeliharaan perangkat lunak.</p>
+      <div class="tag-list"><span class="tag">Windows OS</span><span class="tag">Android</span><span class="tag">Diagnostics</span></div>
+    </div>
+    <div class="card tilt-card reveal">
+      <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <h3>Pengembangan Web & Kreatif Digital</h3>
+      <p>Pembuatan antarmuka web modern menggunakan VS Code, penyusunan dokumentasi materi terstruktur, dan desain visual HD.</p>
+      <div class="tag-list"><span class="tag">HTML5 & CSS3</span><span class="tag">JavaScript</span><span class="tag">VS Code</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="proyek">
+  <div class="section-header reveal">
+    <h2 class="section-title">Proyek & Praktikum</h2>
+    <p class="section-subtitle">Dokumentasi latihan, rancangan jaringan, dan eksplorasi digital.</p>
+  </div>
+  <div class="grid">
+    <div class="card tilt-card reveal">
+      <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="M10.5 7.5 6.5 16.5M13.5 7.5l4 9"/></svg></div>
+      <h3>Desain Topologi Jaringan Lab</h3>
+      <p>Pemetaan arsitektur jaringan terintegrasi antara router utama, switch hub, access point, PC klien, dan laptop berbasis Wi-Fi.</p>
+      <div class="tag-list"><span class="tag">TJKT</span><span class="tag">Network Design</span></div>
+    </div>
+    <div class="card tilt-card reveal">
+      <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div>
+      <h3>Portofolio Web Interaktif HD</h3>
+      <p>Halaman portofolio responsif dengan animasi partikel jaringan, efek kaca modern, dan kartu 3D interaktif.</p>
+      <div class="tag-list"><span class="tag">UI/UX</span><span class="tag">Canvas Animation</span></div>
+    </div>
+    <div class="card tilt-card reveal">
+      <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <h3>Modul & Peta Konsep Digital</h3>
+      <p>Penyusunan ringkasan materi pembelajaran dan mind map terstruktur untuk persiapan evaluasi akademik.</p>
+      <div class="tag-list"><span class="tag">Dokumentasi</span><span class="tag">Mind Map</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="contact-box reveal">
+    <h2>Terhubung & Kolaborasi</h2>
+    <p>Punya ide proyek jaringan, pengembangan web, atau diskusi teknologi? Hubungi saya melalui tautan di bawah ini.</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/irfns_99" target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
+      <a href="https://www.tiktok.com/@1p4n_0" target="_blank" rel="noopener" class="btn btn-outline">TikTok</a>
+      <a href="mailto:irfan.cot246@gmail.com" class="btn btn-primary">Kirim Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; <span id="year"></span> Muhammad Irfan • Dibuat dengan Presisi & Teknologi.</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const menuBtn = document.getElementById('menu-btn');
+const mainNav = document.getElementById('main-nav');
+function setMenu(open) {
+  menuBtn.classList.toggle('open', open);
+  mainNav.classList.toggle('open', open);
+  menuBtn.setAttribute('aria-expanded', open);
+}
+menuBtn.addEventListener('click', () => setMenu(!mainNav.classList.contains('open')));
+mainNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+
+const phrases = ['Network Engineering Student (TJKT)','Router, Switch & Wi-Fi Topology Enthusiast','Web & Creative Tech Explorer'];
+let phraseIdx = 0, charIdx = 0, isDeleting = false;
+const typingEl = document.getElementById('typing-text');
+function typeLoop() {
+  const current = phrases[phraseIdx];
+  typingEl.textContent = isDeleting ? current.substring(0, charIdx--) : current.substring(0, charIdx++);
+  let speed = isDeleting ? 42 : 75;
+  if (!isDeleting && charIdx === current.length + 1) { speed = 1800; isDeleting = true; }
+  else if (isDeleting && charIdx === 0) { isDeleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; speed = 400; }
+  setTimeout(typeLoop, speed);
+}
+typeLoop();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.14 });
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) document.querySelectorAll('.tilt-card').forEach((card) => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left, y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', x + 'px');
+    card.style.setProperty('--mouse-y', y + 'px');
+    const rotateX = ((y / rect.height) - 0.5) * -8;
+    const rotateY = ((x / rect.width) - 0.5) * 8;
+    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+  });
+});
+
+const canvas = document.getElementById('network-canvas');
+const ctx = canvas.getContext('2d');
+const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let width = 0, height, particles, running = true, resizeT;
+const mouse = { x: null, y: null, radius: 140 };
+const LINK = 120, LINK2 = LINK * LINK;
+if (fine) window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+
+function initCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+  width = window.innerWidth; height = window.innerHeight;
+  canvas.width = width * dpr; canvas.height = height * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const count = Math.min(Math.floor((width * height) / 20000), fine ? 55 : 26);
+  particles = Array.from({ length: count }, () => ({
+    x: Math.random() * width, y: Math.random() * height,
+    vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5,
+    size: Math.random() * 2 + 1
+  }));
+}
+
+function draw() {
+  if (!running) return;
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = 'rgba(0, 245, 212, 0.65)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i < particles.length; i++) {
+    const p = particles[i];
+    if (!reduce) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+    }
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, 6.2832); ctx.fill();
+    for (let j = i + 1; j < particles.length; j++) {
+      const q = particles[j];
+      const dx = p.x - q.x, dy = p.y - q.y;
+      const d2 = dx * dx + dy * dy;
+      if (d2 < LINK2) {
+        ctx.strokeStyle = `rgba(0, 245, 212, ${(1 - Math.sqrt(d2) / LINK) * 0.22})`;
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+      }
+    }
+    if (mouse.x !== null) {
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < mouse.radius) {
+        ctx.strokeStyle = `rgba(168, 85, 247, ${(1 - d / mouse.radius) * 0.45})`;
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+      }
+    }
+  }
+  if (!reduce) requestAnimationFrame(draw);
+}
+
+document.addEventListener('visibilitychange', () => {
+  running = !document.hidden;
+  if (running && !reduce) draw();
+});
+window.addEventListener('resize', () => {
+  clearTimeout(resizeT);
+  resizeT = setTimeout(() => { if (window.innerWidth !== width) { initCanvas(); if (reduce) draw(); } }, 200);
+});
+initCanvas();
+draw();
+</script>
+</body>
+</html>
